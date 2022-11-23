@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
   ],
+=======
+    "",
+    "\\APDFinal"
+  ],
+  "SelectedNode": "\\APDFinal\\MainWindow.cpp",
+>>>>>>> origin/master
   "PreviewInSolutionExplorer": false
 }
