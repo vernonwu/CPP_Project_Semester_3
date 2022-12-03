@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\APDFinal"
+    "\\APDFinal",
+    "\\APDFinal\\x64"
   ],
-  "SelectedNode": "\\APDFinal\\MainWindow.cpp",
+  "SelectedNode": "\\APDFinal.sln",
   "PreviewInSolutionExplorer": false
 }

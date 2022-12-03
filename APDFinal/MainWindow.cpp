@@ -6,13 +6,53 @@
 #include<QScrollBar>
 #include "ui_MainWindow.h"
 
+Row::Row(tm time, int type, int amount, std::string remark)
+{
+	this->time = time;
+	this->type = type;
+	this->amount = amount;
+	this->remark = remark;
+}
+void Row::set_Time(tm time)
+{
+	this->time = time;
+}
+tm Row::get_Time()
+{
+	return this->time;
+}
+void Row::set_Type(int type)
+{
+	this->type = type;
+}
+int Row::get_Type()
+{
+	return type;
+}
+void Row::set_Amount(int amount)
+{
+	this->amount = amount;
+}
+int Row::get_Amount()
+{
+	return this->amount;
+}
+void Row::set_Remark(std::string remark)
+{
+	this->remark = remark;
+}
+std::string Row::get_Remark()
+{
+	return this->remark;
+}
+
 MainWindow::MainWindow(QWidget *parent)
 	: QWidget(parent), ui1(new Ui::MainWindow)
 {
 	ui1->setupUi(this);
 	//this->resize(QSize(800, 600));
 	QStandardItemModel* model = new QStandardItemModel(999, 4);
-	model->setHeaderData(0, Qt::Horizontal, tr("日期"));
+	model->setHeaderData(0, Qt::Horizontal, tr("时间"));
 	model->setHeaderData(1, Qt::Horizontal, tr("种类"));
 	model->setHeaderData(2, Qt::Horizontal, tr("金额"));
 	model->setHeaderData(3, Qt::Horizontal, tr("备注"));
