@@ -2,9 +2,12 @@
 #pragma execution_character_set("utf-8")
 #endif
 #include "MainWindow.h"
+#include <QScrollBar>
 #include <QStandardItemModel>
-#include<QScrollBar>
+#include <algorithm>
+#include <string>
 #include "ui_MainWindow.h"
+std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
 
 Row::Row(tm time, int type, int amount, std::string remark)
 {
@@ -51,7 +54,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
 	ui1->setupUi(this);
 	//this->resize(QSize(800, 600));
-	QStandardItemModel* model = new QStandardItemModel(999, 4);
+	this->model = new QStandardItemModel(999, 4);
+	this->selection = new QItemSelectionModel(model);
 	model->setHeaderData(0, Qt::Horizontal, tr("时间"));
 	model->setHeaderData(1, Qt::Horizontal, tr("种类"));
 	model->setHeaderData(2, Qt::Horizontal, tr("金额"));
@@ -66,11 +70,60 @@ MainWindow::MainWindow(QWidget *parent)
 	ui1->tableView->setSelectionBehavior(QAbstractItemView::SelectRows); //设置选中模式为选中行
 	ui1->tableView->setSelectionMode(QAbstractItemView::SingleSelection); //设置选中单行
 	ui1->tableView->setModel(model); //使用
+	ui1->tableView->setSelectionModel(selection);
+	ui1->tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+	ui1->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	int pos = 0;
 	ui1->tableView->verticalScrollBar()->setSliderPosition(pos);
+	connect(ui1->pushButton_2, SIGNAL(clicked()), this, SLOT(delete_Row()));
+}
+
+bool cmp(Row a, Row b)
+{
+	std::time_t a_time = mktime(&a.get_Time());
+	std::time_t b_time = mktime(&b.get_Time());
+	if (a_time > b_time)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 
 MainWindow::~MainWindow()
 {
 	delete ui1;
+	delete model;
+	delete selection;
+}
+
+void MainWindow::delete_Row()
+{
+	QModelIndex curIndex = selection->currentIndex();
+	model->removeRow(curIndex.row());
+	int row_index = curIndex.row();
+	table.erase(table.begin() + row_index);
+	refresh();
+}
+
+void MainWindow::refresh()
+{
+	int length = table.size();
+	for (int i = 0; i < length; i++)
+	{
+		this->model->setItem(i, 0, new QStandardItem(asctime(&this->table[i].get_Time())));
+		this->model->setItem(i, 1, new QStandardItem(type_info[this->table[i].get_Type()].c_str()));
+		this->model->setItem(i, 2, new QStandardItem(std::to_string(this->table[i].get_Amount()).c_str()));
+		this->model->setItem(i, 3, new QStandardItem(this->table[i].get_Remark().c_str()));
+	}
+}
+
+void MainWindow::add_Row(tm time, int type, int amount, std::string remark)
+{
+	Row new_row(time, type, amount, remark);
+	this->table.push_back(new_row);
+	std::sort(this->table.begin(), this->table.end(), cmp);
+	refresh();
 }

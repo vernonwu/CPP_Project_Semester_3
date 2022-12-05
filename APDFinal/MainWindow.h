@@ -4,10 +4,12 @@
 #include <ctime>
 #include <vector>
 #include <string>
+#include <QStandardItemModel>
 #include "ui_MainWindow.h"
 
 class Row
 {
+	//friend void MainWindow::add_Row(tm time, int type, int amount, std::string remark);
 private:
 	tm time;
 	int type;
@@ -35,7 +37,10 @@ public:
 	void add_Row(tm time, int type, int amount, std::string remark);
 	void delete_Row(int cursor);
 	void refresh();
+	void delete_Row();
 private:
 	Ui::MainWindow* ui1;
 	std::vector <Row> table;
+	QStandardItemModel* model;
+	QItemSelectionModel* selection;
 };
