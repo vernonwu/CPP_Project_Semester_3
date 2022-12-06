@@ -32,9 +32,12 @@
       <number>10</number>
      </property>
      <item row="4" column="1">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="FindButton">
        <property name="text">
         <string>查找账目</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -49,23 +52,32 @@
       </widget>
      </item>
      <item row="6" column="1">
-      <widget class="QPushButton" name="pushButton_4">
+      <widget class="QPushButton" name="CalcButton">
        <property name="text">
         <string>统计账目</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="InsertButton">
        <property name="text">
         <string>插入账目</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="DeleteButton">
        <property name="text">
         <string>删除账目</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

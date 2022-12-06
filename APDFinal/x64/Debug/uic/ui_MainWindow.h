@@ -27,11 +27,11 @@ class Ui_MainWindow
 public:
     QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_3;
+    QPushButton *FindButton;
     QTableView *tableView;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton;
-    QPushButton *pushButton_2;
+    QPushButton *CalcButton;
+    QPushButton *InsertButton;
+    QPushButton *DeleteButton;
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *verticalSpacer;
     QSpacerItem *verticalSpacer_3;
@@ -50,10 +50,11 @@ public:
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetNoConstraint);
         gridLayout->setContentsMargins(10, 10, 10, 10);
-        pushButton_3 = new QPushButton(MainWindow);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+        FindButton = new QPushButton(MainWindow);
+        FindButton->setObjectName(QStringLiteral("FindButton"));
+        FindButton->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_3, 4, 1, 1, 1);
+        gridLayout->addWidget(FindButton, 4, 1, 1, 1);
 
         tableView = new QTableView(MainWindow);
         tableView->setObjectName(QStringLiteral("tableView"));
@@ -65,20 +66,23 @@ public:
 
         gridLayout->addWidget(tableView, 0, 0, 7, 1);
 
-        pushButton_4 = new QPushButton(MainWindow);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
+        CalcButton = new QPushButton(MainWindow);
+        CalcButton->setObjectName(QStringLiteral("CalcButton"));
+        CalcButton->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_4, 6, 1, 1, 1);
+        gridLayout->addWidget(CalcButton, 6, 1, 1, 1);
 
-        pushButton = new QPushButton(MainWindow);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        InsertButton = new QPushButton(MainWindow);
+        InsertButton->setObjectName(QStringLiteral("InsertButton"));
+        InsertButton->setCheckable(true);
 
-        gridLayout->addWidget(pushButton, 0, 1, 1, 1);
+        gridLayout->addWidget(InsertButton, 0, 1, 1, 1);
 
-        pushButton_2 = new QPushButton(MainWindow);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
+        DeleteButton = new QPushButton(MainWindow);
+        DeleteButton->setObjectName(QStringLiteral("DeleteButton"));
+        DeleteButton->setCheckable(true);
 
-        gridLayout->addWidget(pushButton_2, 2, 1, 1, 1);
+        gridLayout->addWidget(DeleteButton, 2, 1, 1, 1);
 
         verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -104,10 +108,10 @@ public:
     void retranslateUi(QWidget *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("MainWindow", "\346\237\245\346\211\276\350\264\246\347\233\256", Q_NULLPTR));
-        pushButton_4->setText(QApplication::translate("MainWindow", "\347\273\237\350\256\241\350\264\246\347\233\256", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("MainWindow", "\346\217\222\345\205\245\350\264\246\347\233\256", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244\350\264\246\347\233\256", Q_NULLPTR));
+        FindButton->setText(QApplication::translate("MainWindow", "\346\237\245\346\211\276\350\264\246\347\233\256", Q_NULLPTR));
+        CalcButton->setText(QApplication::translate("MainWindow", "\347\273\237\350\256\241\350\264\246\347\233\256", Q_NULLPTR));
+        InsertButton->setText(QApplication::translate("MainWindow", "\346\217\222\345\205\245\350\264\246\347\233\256", Q_NULLPTR));
+        DeleteButton->setText(QApplication::translate("MainWindow", "\345\210\240\351\231\244\350\264\246\347\233\256", Q_NULLPTR));
     } // retranslateUi
 
 };

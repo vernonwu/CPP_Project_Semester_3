@@ -9,20 +9,20 @@
 #include "ui_MainWindow.h"
 std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
 
-Row::Row(tm time, int type, int amount, std::string remark)
+Row::Row(QDate* date, int type, int amount, std::string remark)
 {
-	this->time = time;
+	this->date = date;
 	this->type = type;
 	this->amount = amount;
 	this->remark = remark;
 }
-void Row::set_Time(tm time)
+void Row::set_Date(QDate* date)
 {
-	this->time = time;
+	this->date = date;
 }
-tm Row::get_Time()
+QDate* Row::get_Date()
 {
-	return this->time;
+	return this->date;
 }
 void Row::set_Type(int type)
 {
@@ -48,6 +48,8 @@ std::string Row::get_Remark()
 {
 	return this->remark;
 }
+
+
 
 MainWindow::MainWindow(QWidget *parent)
 	: QWidget(parent), ui1(new Ui::MainWindow)
@@ -75,14 +77,19 @@ MainWindow::MainWindow(QWidget *parent)
 	ui1->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
 	int pos = 0;
 	ui1->tableView->verticalScrollBar()->setSliderPosition(pos);
-	connect(ui1->pushButton_2, SIGNAL(clicked()), this, SLOT(delete_Row()));
+	connect(ui1->DeleteButton, SIGNAL(clicked()), this, SLOT(delete_Row()));
+	connect(ui1->InsertButton, SIGNAL(clicked()), this, SLOT(slot2()));
+}
+
+void MainWindow::slot2()
+{
+	iw = new InsertWindow;
+	iw->show();
 }
 
 bool cmp(Row a, Row b)
 {
-	std::time_t a_time = mktime(&a.get_Time());
-	std::time_t b_time = mktime(&b.get_Time());
-	if (a_time > b_time)
+	if (*a.get_Date() > *b.get_Date())
 	{
 		return true;
 	}
@@ -113,16 +120,16 @@ void MainWindow::refresh()
 	int length = table.size();
 	for (int i = 0; i < length; i++)
 	{
-		this->model->setItem(i, 0, new QStandardItem(asctime(&this->table[i].get_Time())));
+		this->model->setItem(i, 0, new QStandardItem(this->table[i].get_Date()->toString()));
 		this->model->setItem(i, 1, new QStandardItem(type_info[this->table[i].get_Type()].c_str()));
 		this->model->setItem(i, 2, new QStandardItem(std::to_string(this->table[i].get_Amount()).c_str()));
 		this->model->setItem(i, 3, new QStandardItem(this->table[i].get_Remark().c_str()));
 	}
 }
 
-void MainWindow::add_Row(tm time, int type, int amount, std::string remark)
+void MainWindow::add_Row(QDate* date, int type, int amount, std::string remark)
 {
-	Row new_row(time, type, amount, remark);
+	Row new_row(date, type, amount, remark);
 	this->table.push_back(new_row);
 	std::sort(this->table.begin(), this->table.end(), cmp);
 	refresh();

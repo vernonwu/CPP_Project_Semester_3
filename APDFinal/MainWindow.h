@@ -3,7 +3,9 @@
 #include <QWidget>
 #include <ctime>
 #include <vector>
+#include <QDate>
 #include <string>
+#include "InsertWindow.h"
 #include <QStandardItemModel>
 #include "ui_MainWindow.h"
 
@@ -11,14 +13,14 @@ class Row
 {
 	//friend void MainWindow::add_Row(tm time, int type, int amount, std::string remark);
 private:
-	tm time;
+	QDate* date;
 	int type;
 	int amount;
 	std::string remark;
 public:
-	Row(tm time, int type, int amount, std::string remark);
-	void set_Time(tm time);
-	tm get_Time();
+	Row(QDate* date, int type, int amount, std::string remark);
+	void set_Date(QDate* date);
+	QDate* get_Date();
 	void set_Type(int type);
 	int get_Type();
 	void set_Amount(int amount);
@@ -34,13 +36,16 @@ class MainWindow : public QWidget
 public:
 	MainWindow(QWidget *parent = Q_NULLPTR);
 	~MainWindow();
-	void add_Row(tm time, int type, int amount, std::string remark);
+	void add_Row(QDate* date, int type, int amount, std::string remark);
 	void delete_Row(int cursor);
 	void refresh();
 	void delete_Row();
+private slots:
+	void slot2();
 private:
 	Ui::MainWindow* ui1;
 	std::vector <Row> table;
 	QStandardItemModel* model;
 	QItemSelectionModel* selection;
+	InsertWindow* iw;
 };
