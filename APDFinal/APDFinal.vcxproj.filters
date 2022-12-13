@@ -46,12 +46,18 @@
     <ClCompile Include="InsertWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SelectDate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="InsertWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SelectDate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -62,5 +68,11 @@
     <QtUic Include="InsertWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="SelectDate.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

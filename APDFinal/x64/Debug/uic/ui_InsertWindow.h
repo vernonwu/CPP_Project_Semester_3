@@ -36,7 +36,7 @@ public:
     QLabel *label;
     QComboBox *comboBox;
     QLabel *label_2;
-    QComboBox *comboBox_2;
+    QLineEdit *lineEdit_2;
     QLabel *label_3;
     QLineEdit *lineEdit;
     QPushButton *pushButton_2;
@@ -75,10 +75,10 @@ public:
 
         horizontalLayout->addWidget(label_2);
 
-        comboBox_2 = new QComboBox(centralWidget);
-        comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
+        lineEdit_2 = new QLineEdit(centralWidget);
+        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
 
-        horizontalLayout->addWidget(comboBox_2);
+        horizontalLayout->addWidget(lineEdit_2);
 
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QStringLiteral("label_3"));

@@ -13,14 +13,14 @@ class Row
 {
 	//friend void MainWindow::add_Row(tm time, int type, int amount, std::string remark);
 private:
-	QDate* date;
+	QDate date;
 	int type;
 	int amount;
 	std::string remark;
 public:
-	Row(QDate* date, int type, int amount, std::string remark);
-	void set_Date(QDate* date);
-	QDate* get_Date();
+	Row(QDate date, int type, int amount, std::string remark);
+	void set_Date(QDate date);
+	QDate get_Date();
 	void set_Type(int type);
 	int get_Type();
 	void set_Amount(int amount);
@@ -36,12 +36,13 @@ class MainWindow : public QWidget
 public:
 	MainWindow(QWidget *parent = Q_NULLPTR);
 	~MainWindow();
-	void add_Row(QDate* date, int type, int amount, std::string remark);
+	void add_Row(QDate date, int type, int amount, std::string remark);
 	void delete_Row(int cursor);
 	void refresh();
-	void delete_Row();
-private slots:
+public slots:
 	void slot2();
+	void delete_Row();
+	void receiveData1(QDate date, int type, double amount, std::string remark);
 private:
 	Ui::MainWindow* ui1;
 	std::vector <Row> table;

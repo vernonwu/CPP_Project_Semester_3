@@ -9,18 +9,18 @@
 #include "ui_MainWindow.h"
 std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
 
-Row::Row(QDate* date, int type, int amount, std::string remark)
+Row::Row(QDate date, int type, int amount, std::string remark)
 {
 	this->date = date;
 	this->type = type;
 	this->amount = amount;
 	this->remark = remark;
 }
-void Row::set_Date(QDate* date)
+void Row::set_Date(QDate date)
 {
 	this->date = date;
 }
-QDate* Row::get_Date()
+QDate Row::get_Date()
 {
 	return this->date;
 }
@@ -84,12 +84,13 @@ MainWindow::MainWindow(QWidget *parent)
 void MainWindow::slot2()
 {
 	iw = new InsertWindow;
+	connect(iw, SIGNAL(sendData1(QDate, int, double, std::string)), this, SLOT(receiveData1(QDate, int, double, std::string)));
 	iw->show();
 }
 
 bool cmp(Row a, Row b)
 {
-	if (*a.get_Date() > *b.get_Date())
+	if (a.get_Date() > b.get_Date())
 	{
 		return true;
 	}
@@ -120,17 +121,22 @@ void MainWindow::refresh()
 	int length = table.size();
 	for (int i = 0; i < length; i++)
 	{
-		this->model->setItem(i, 0, new QStandardItem(this->table[i].get_Date()->toString()));
+		this->model->setItem(i, 0, new QStandardItem(this->table[i].get_Date().toString()));
 		this->model->setItem(i, 1, new QStandardItem(type_info[this->table[i].get_Type()].c_str()));
 		this->model->setItem(i, 2, new QStandardItem(std::to_string(this->table[i].get_Amount()).c_str()));
 		this->model->setItem(i, 3, new QStandardItem(this->table[i].get_Remark().c_str()));
 	}
 }
 
-void MainWindow::add_Row(QDate* date, int type, int amount, std::string remark)
+void MainWindow::add_Row(QDate date, int type, int amount, std::string remark)
 {
 	Row new_row(date, type, amount, remark);
 	this->table.push_back(new_row);
 	std::sort(this->table.begin(), this->table.end(), cmp);
 	refresh();
+}
+
+void MainWindow::receiveData1(QDate date, int type, double amount, std::string remark)
+{
+	add_Row(date, type, amount, remark);
 }
