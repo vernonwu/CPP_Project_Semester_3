@@ -4,6 +4,7 @@
 #include <ctime>
 #include <vector>
 #include <QDate>
+#include "FindWindow.h"
 #include <string>
 #include "InsertWindow.h"
 #include <QStandardItemModel>
@@ -42,6 +43,7 @@ public:
 public slots:
 	void slot2();
 	void delete_Row();
+	void slot_find();
 	void receiveData1(QDate date, int type, double amount, std::string remark);
 private:
 	Ui::MainWindow* ui1;
@@ -49,4 +51,5 @@ private:
 	QStandardItemModel* model;
 	QItemSelectionModel* selection;
 	InsertWindow* iw;
+	FindWindow* fw;
 };

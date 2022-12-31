@@ -5,6 +5,7 @@
 #include "SelectDate.h"
 //std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
 
+
 InsertWindow::InsertWindow(QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::InsertWindowClass())

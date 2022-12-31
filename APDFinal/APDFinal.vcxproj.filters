@@ -49,6 +49,9 @@
     <ClCompile Include="SelectDate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FindWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -60,6 +63,9 @@
     <QtMoc Include="SelectDate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FindWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWindow.ui">
@@ -69,6 +75,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="SelectDate.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="FindWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

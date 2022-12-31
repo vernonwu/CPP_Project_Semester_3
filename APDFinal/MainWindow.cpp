@@ -5,6 +5,7 @@
 #include <QScrollBar>
 #include <QStandardItemModel>
 #include <algorithm>
+#include "FindWindow.h"
 #include <string>
 #include "ui_MainWindow.h"
 std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
@@ -79,6 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
 	ui1->tableView->verticalScrollBar()->setSliderPosition(pos);
 	connect(ui1->DeleteButton, SIGNAL(clicked()), this, SLOT(delete_Row()));
 	connect(ui1->InsertButton, SIGNAL(clicked()), this, SLOT(slot2()));
+	connect(ui1->FindButton, SIGNAL(clicked()), this, SLOT(slot_find()));
 }
 
 void MainWindow::slot2()
@@ -86,6 +88,12 @@ void MainWindow::slot2()
 	iw = new InsertWindow;
 	connect(iw, SIGNAL(sendData1(QDate, int, double, std::string)), this, SLOT(receiveData1(QDate, int, double, std::string)));
 	iw->show();
+}
+
+void MainWindow::slot_find()
+{
+	fw = new FindWindow;
+	fw->show();
 }
 
 bool cmp(Row a, Row b)
