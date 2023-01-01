@@ -94,6 +94,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\lszto\source\repos\APDFinal\APDFinal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="SelectDate.cpp" />
+    <ClCompile Include="Row.cpp" />
     <QtRcc Include="APDFinal.qrc" />
     <QtUic Include="APDFinal.ui" />
     <QtMoc Include="APDFinal.h" />
@@ -118,6 +119,9 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="FindWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Row.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
