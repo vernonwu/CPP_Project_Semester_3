@@ -26,6 +26,7 @@ public slots:
 	void select_date();
 	void receive_Date(QDate data);
 	void find_by_date();
+	void find_by_type();
 
 private:
 	Ui::FindWindowClass *ui;

@@ -40,6 +40,7 @@ FindWindow::FindWindow(std::vector <Row> table, QWidget *parent)
 	ui->tableView->verticalScrollBar()->setSliderPosition(pos);
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(select_date()));
 	connect(ui->pushButton_2, SIGNAL(clicked()), this, SLOT(find_by_date()));
+	connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(find_by_type()));
 	this->table = table;
 }
 
@@ -48,6 +49,21 @@ void FindWindow::select_date()
 	sd = new SelectDate;
 	connect(sd, SIGNAL(sendDate(QDate)), this, SLOT(receive_Date(QDate)));
 	sd->show();
+}
+
+void FindWindow::find_by_type()
+{
+	int length = this->table.size();
+	this->display_table.clear();
+	int type = ui->comboBox->currentIndex();
+	for (int i = 0; i < length; i++)
+	{
+		if (this->table[i].get_Type() == type)
+		{
+			display_table.push_back(table[i]);
+		}
+	}
+	refresh();
 }
 
 void FindWindow::find_by_date()

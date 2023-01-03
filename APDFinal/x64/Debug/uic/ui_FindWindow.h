@@ -31,13 +31,14 @@ class Ui_FindWindowClass
 {
 public:
     QWidget *centralWidget;
+    QGridLayout *gridLayout_2;
     QGridLayout *gridLayout;
+    QComboBox *comboBox;
+    QLabel *label_2;
     QLabel *label;
+    QPushButton *pushButton_3;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
-    QLabel *label_2;
-    QComboBox *comboBox;
-    QPushButton *pushButton_3;
     QTableView *tableView;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -50,14 +51,36 @@ public:
         FindWindowClass->resize(678, 437);
         centralWidget = new QWidget(FindWindowClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        gridLayout = new QGridLayout(centralWidget);
+        gridLayout_2 = new QGridLayout(centralWidget);
+        gridLayout_2->setSpacing(6);
+        gridLayout_2->setContentsMargins(11, 11, 11, 11);
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
-        gridLayout->setContentsMargins(11, 11, 11, 11);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setSizeConstraint(QLayout::SetNoConstraint);
+        gridLayout->setContentsMargins(10, 10, 10, 10);
+        comboBox = new QComboBox(centralWidget);
+        comboBox->setObjectName(QStringLiteral("comboBox"));
+
+        gridLayout->addWidget(comboBox, 1, 1, 1, 1);
+
+        label_2 = new QLabel(centralWidget);
+        label_2->setObjectName(QStringLiteral("label_2"));
+        label_2->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label, 0, 0, 1, 1);
+
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+
+        gridLayout->addWidget(pushButton_3, 1, 2, 1, 1);
 
         pushButton = new QPushButton(centralWidget);
         pushButton->setObjectName(QStringLiteral("pushButton"));
@@ -69,25 +92,13 @@ public:
 
         gridLayout->addWidget(pushButton_2, 0, 2, 1, 1);
 
-        label_2 = new QLabel(centralWidget);
-        label_2->setObjectName(QStringLiteral("label_2"));
-
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
-
-        comboBox = new QComboBox(centralWidget);
-        comboBox->setObjectName(QStringLiteral("comboBox"));
-
-        gridLayout->addWidget(comboBox, 1, 1, 1, 1);
-
-        pushButton_3 = new QPushButton(centralWidget);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-
-        gridLayout->addWidget(pushButton_3, 1, 2, 1, 1);
-
         tableView = new QTableView(centralWidget);
         tableView->setObjectName(QStringLiteral("tableView"));
 
-        gridLayout->addWidget(tableView, 2, 1, 1, 1);
+        gridLayout->addWidget(tableView, 2, 0, 1, 3);
+
+
+        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
         FindWindowClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(FindWindowClass);
@@ -109,11 +120,11 @@ public:
     void retranslateUi(QMainWindow *FindWindowClass)
     {
         FindWindowClass->setWindowTitle(QApplication::translate("FindWindowClass", "FindWindow", Q_NULLPTR));
+        label_2->setText(QApplication::translate("FindWindowClass", "\347\247\215\347\261\273\346\237\245\346\211\276", Q_NULLPTR));
         label->setText(QApplication::translate("FindWindowClass", "\346\227\245\346\234\237\346\237\245\346\211\276", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("FindWindowClass", "\347\247\215\347\261\273\346\237\245\346\211\276", Q_NULLPTR));
         pushButton->setText(QApplication::translate("FindWindowClass", "\351\200\211\346\213\251\346\227\245\346\234\237", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("FindWindowClass", "\346\227\245\346\234\237\346\237\245\346\211\276", Q_NULLPTR));
-        label_2->setText(QApplication::translate("FindWindowClass", "\347\247\215\347\261\273\346\237\245\346\211\276", Q_NULLPTR));
-        pushButton_3->setText(QApplication::translate("FindWindowClass", "\347\247\215\347\261\273\346\237\245\346\211\276", Q_NULLPTR));
     } // retranslateUi
 
 };
