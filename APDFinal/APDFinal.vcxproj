@@ -89,6 +89,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FindWindow.cpp" />
+    <ClCompile Include="Info.cpp" />
     <ClCompile Include="InsertWindow.cpp" />
     <ClCompile Include="MainWindow.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\lszto\source\repos\APDFinal\APDFinal;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -101,6 +102,7 @@
     <ClCompile Include="APDFinal.cpp" />
     <ClCompile Include="main.cpp" />
     <QtUic Include="FindWindow.ui" />
+    <QtUic Include="Info.ui" />
     <QtUic Include="InsertWindow.ui" />
     <QtUic Include="MainWindow.ui" />
     <QtUic Include="SelectDate.ui" />
@@ -121,6 +123,7 @@
     <QtMoc Include="FindWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Info.h" />
     <ClInclude Include="Row.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

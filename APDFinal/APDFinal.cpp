@@ -6,11 +6,18 @@ APDFinal::APDFinal(QWidget* parent)
 {
     ui->setupUi(this);
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(slot1()));
+    connect(ui->pushButton_3, SIGNAL(clicked()), this, SLOT(info_slot()));
 }
 
 APDFinal::~APDFinal()
 {
     delete ui;
+}
+
+void APDFinal::info_slot()
+{
+    info = new Info;
+    info->show();
 }
 
 void APDFinal::slot1()

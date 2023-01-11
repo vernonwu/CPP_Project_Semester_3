@@ -36,6 +36,7 @@ public:
     QSpacerItem *verticalSpacer;
     QPushButton *pushButton;
     QPushButton *pushButton_2;
+    QPushButton *pushButton_3;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -79,6 +80,11 @@ public:
 
         verticalLayout->addWidget(pushButton_2);
 
+        pushButton_3 = new QPushButton(centralWidget);
+        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
+
+        verticalLayout->addWidget(pushButton_3);
+
 
         verticalLayout_2->addLayout(verticalLayout);
 
@@ -105,6 +111,7 @@ public:
         label->setText(QApplication::translate("APDFinalClass", "\346\254\242\350\277\216\344\275\277\347\224\250\350\256\260\350\264\246\347\256\241\347\220\206\345\231\250", Q_NULLPTR));
         pushButton->setText(QApplication::translate("APDFinalClass", "\350\277\233\345\205\245\347\263\273\347\273\237", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("APDFinalClass", "\345\257\274\345\205\245\346\225\260\346\215\256", Q_NULLPTR));
+        pushButton_3->setText(QApplication::translate("APDFinalClass", "\345\210\266\344\275\234\350\200\205\344\277\241\346\201\257", Q_NULLPTR));
     } // retranslateUi
 
 };

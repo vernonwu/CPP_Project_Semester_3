@@ -1,7 +1,6 @@
-﻿  uic FindWindow.ui
-  FindWindow.cpp
-  MainWindow.cpp
+﻿  APDFinal.cpp
+  Info.cpp
+  main.cpp
   moc_APDFinal.cpp
-  moc_FindWindow.cpp
-  moc_MainWindow.cpp
+  moc_Info.cpp
   APDFinal.vcxproj -> C:\Users\lszto\source\repos\anonymousoul\CPP_Project_Semester_3\x64\Debug\APDFinal.exe
