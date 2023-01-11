@@ -58,6 +58,9 @@
     <ClCompile Include="Info.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Calculate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -75,6 +78,9 @@
     <QtMoc Include="Info.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="Calculate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="MainWindow.ui">
@@ -90,6 +96,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Info.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Calculate.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

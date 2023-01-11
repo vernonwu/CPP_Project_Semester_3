@@ -5,6 +5,8 @@
 #include <QScrollBar>
 #include <QStandardItemModel>
 #include <algorithm>
+#include <fstream>
+#include <iostream>
 #include "FindWindow.h"
 #include <string>
 #include "ui_MainWindow.h"
@@ -14,7 +16,7 @@ std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" }
 
 
 
-MainWindow::MainWindow(QWidget *parent)
+MainWindow::MainWindow(std::vector<Row> table, QWidget *parent)
 	: QWidget(parent), ui1(new Ui::MainWindow)
 {
 	ui1->setupUi(this);
@@ -43,6 +45,19 @@ MainWindow::MainWindow(QWidget *parent)
 	connect(ui1->DeleteButton, SIGNAL(clicked()), this, SLOT(delete_Row()));
 	connect(ui1->InsertButton, SIGNAL(clicked()), this, SLOT(slot2()));
 	connect(ui1->FindButton, SIGNAL(clicked()), this, SLOT(slot_find()));
+	connect(ui1->CalcButton, SIGNAL(clicked()), this, SLOT(slot_cal()));
+	this->table = table;
+	refresh();
+}
+
+void MainWindow::save_data()
+{
+	std::ofstream out(".\\save.dat");
+	int length = this->table.size();
+	for (int i = 0; i < length; i++)
+	{
+		out << this->table[i].get_Date().toString("yyyyMMdd").toStdString() << " " << this->table[i].get_Type() << " " << this->table[i].get_Amount() << " " << this->table[i].get_Remark() << std::endl;
+	}
 }
 
 void MainWindow::slot2()
@@ -50,6 +65,16 @@ void MainWindow::slot2()
 	iw = new InsertWindow;
 	connect(iw, SIGNAL(sendData1(QDate, int, double, std::string)), this, SLOT(receiveData1(QDate, int, double, std::string)));
 	iw->show();
+}
+
+void MainWindow::slot_cal()
+{
+	if (this->table.empty() == true)
+	{
+		return; //TODO:add a page to display unable
+	}
+	cw = new Calculate(this->table);
+	cw->show();
 }
 
 void MainWindow::slot_find()
@@ -87,6 +112,7 @@ void MainWindow::delete_Row()
 	model->removeRow(curIndex.row());
 	int row_index = curIndex.row();
 	table.erase(table.begin() + row_index);
+	save_data();
 	refresh();
 }
 
@@ -107,6 +133,7 @@ void MainWindow::add_Row(QDate date, int type, int amount, std::string remark)
 	Row new_row(date, type, amount, remark);
 	this->table.push_back(new_row);
 	std::sort(this->table.begin(), this->table.end(), cmp);
+	save_data();
 	refresh();
 }
 
