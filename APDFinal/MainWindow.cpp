@@ -12,7 +12,7 @@
 #include "ui_MainWindow.h"
 std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
 
-
+extern int language;
 
 
 
@@ -23,10 +23,28 @@ MainWindow::MainWindow(std::vector<Row> table, QWidget *parent)
 	//this->resize(QSize(800, 600));
 	this->model = new QStandardItemModel(999, 4);
 	this->selection = new QItemSelectionModel(model);
-	model->setHeaderData(0, Qt::Horizontal, tr("时间"));
-	model->setHeaderData(1, Qt::Horizontal, tr("种类"));
-	model->setHeaderData(2, Qt::Horizontal, tr("金额"));
-	model->setHeaderData(3, Qt::Horizontal, tr("备注"));
+	if (language == 0)
+	{
+		model->setHeaderData(0, Qt::Horizontal, tr("时间"));
+		model->setHeaderData(1, Qt::Horizontal, tr("种类"));
+		model->setHeaderData(2, Qt::Horizontal, tr("金额"));
+		model->setHeaderData(3, Qt::Horizontal, tr("备注"));
+		ui1->InsertButton->setText("插入账目");
+		ui1->DeleteButton->setText("删除账目");
+		ui1->FindButton->setText("查找账目");
+		ui1->CalcButton->setText("统计账目");
+	}
+	else
+	{
+		model->setHeaderData(0, Qt::Horizontal, tr("Date"));
+		model->setHeaderData(1, Qt::Horizontal, tr("Type"));
+		model->setHeaderData(2, Qt::Horizontal, tr("Amount"));
+		model->setHeaderData(3, Qt::Horizontal, tr("Remark"));
+		ui1->InsertButton->setText("Insert");
+		ui1->DeleteButton->setText("Delete");
+		ui1->FindButton->setText("Find");
+		ui1->CalcButton->setText("calculate");
+	}
 	ui1->tableView->horizontalHeader()->setVisible(true);//显示或隐藏表头
 	ui1->tableView->verticalHeader()->setVisible(false);//显示或隐藏序列行
 	ui1->tableView->setAutoScroll(true);//自动滚动条

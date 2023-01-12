@@ -97,6 +97,7 @@
     </ClCompile>
     <ClCompile Include="SelectDate.cpp" />
     <ClCompile Include="Row.cpp" />
+    <ClCompile Include="Settings.cpp" />
     <QtRcc Include="APDFinal.qrc" />
     <QtUic Include="APDFinal.ui" />
     <QtMoc Include="APDFinal.h" />
@@ -108,6 +109,7 @@
     <QtUic Include="InsertWindow.ui" />
     <QtUic Include="MainWindow.ui" />
     <QtUic Include="SelectDate.ui" />
+    <QtUic Include="Settings.ui" />
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h" />
@@ -125,6 +127,7 @@
     <QtMoc Include="FindWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="Settings.h" />
     <QtMoc Include="Info.h" />
     <QtMoc Include="Calculate.h" />
     <ClInclude Include="Row.h" />

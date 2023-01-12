@@ -3,13 +3,38 @@
 #endif
 #include "Calculate.h"
 
+extern int language;
+
 Calculate::Calculate(std::vector<Row> table, QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::CalculateClass())
 {
 	ui->setupUi(this);
 	QStringList type_list;
-	type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
+	if (language == 0)
+	{
+		type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
+		ui->label->setText("根据日期统计");
+		ui->label_2->setText("根据类型统计");
+		ui->label_3->setText("总和");
+		ui->label_4->setText("最大");
+		ui->label_5->setText("最小");
+		ui->pushButton->setText("选择日期");
+		ui->pushButton_2->setText("日期统计");
+		ui->pushButton_3->setText("类型统计");
+	}
+	else
+	{
+		type_list << "Daily" << "Fixed" << "Large" << "Dealings" << "Entertainment";
+		ui->label->setText("Calculate By Date");
+		ui->label_2->setText("Calculate By Type");
+		ui->label_3->setText("Sum");
+		ui->label_4->setText("Maximum");
+		ui->label_5->setText("Minimum");
+		ui->pushButton->setText("Choose Date");
+		ui->pushButton_2->setText("Calculate By Date");
+		ui->pushButton_3->setText("Calculate By Type");
+	}
 	ui->comboBox->addItems(type_list);
 	this->table = table;
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(select_date()));

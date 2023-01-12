@@ -1,6 +1,9 @@
 #if _MSC_VER >= 1600
 #pragma execution_character_set("utf-8")
 #endif
+
+extern int language;
+
 #include "InsertWindow.h"
 #include "SelectDate.h"
 //std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
@@ -12,7 +15,24 @@ InsertWindow::InsertWindow(QWidget *parent)
 {
 	ui->setupUi(this);
 	QStringList type_list;
-	type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
+	if (language == 0)
+	{
+		type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
+		ui->pushButton->setText("选择日期");
+		ui->label->setText("种类");
+		ui->label_2->setText("金额");
+		ui->label_3->setText("备注");
+		ui->pushButton_2->setText("插入");
+	}
+	else
+	{
+		type_list << "Daily" << "Fixed" << "Large" << "Dealings" << "Entertainment";
+		ui->pushButton->setText("Choose Date");
+		ui->label->setText("Type");
+		ui->label_2->setText("Amount");
+		ui->label_3->setText("Remark");
+		ui->pushButton_2->setText("Insert");
+	}
 	ui->comboBox->addItems(type_list);
 	ui->lineEdit_2->setValidator(new QRegExpValidator(QRegExp("^\\d+(\\.\\d+)?$")));
 	connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(select_Date()));

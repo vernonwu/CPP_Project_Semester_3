@@ -8,6 +8,7 @@
 #include <QStandardItemModel>
 #include "Row.h"
 
+extern int language;
 
 FindWindow::FindWindow(std::vector <Row> table, QWidget *parent)
 	: QMainWindow(parent)
@@ -15,14 +16,35 @@ FindWindow::FindWindow(std::vector <Row> table, QWidget *parent)
 {
 	ui->setupUi(this);
 	QStringList type_list;
-	type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
-	ui->comboBox->addItems(type_list);
 	this->model = new QStandardItemModel(999, 4);
 	this->selection = new QItemSelectionModel(model);
-	model->setHeaderData(0, Qt::Horizontal, tr("时间"));
-	model->setHeaderData(1, Qt::Horizontal, tr("种类"));
-	model->setHeaderData(2, Qt::Horizontal, tr("金额"));
-	model->setHeaderData(3, Qt::Horizontal, tr("备注"));
+	if (language == 0)
+	{
+		type_list << "日常" << "固定" << "大项" << "往来" << "娱乐";
+		model->setHeaderData(0, Qt::Horizontal, tr("时间"));
+		model->setHeaderData(1, Qt::Horizontal, tr("种类"));
+		model->setHeaderData(2, Qt::Horizontal, tr("金额"));
+		model->setHeaderData(3, Qt::Horizontal, tr("备注"));
+		ui->label->setText("日期查找");
+		ui->label_2->setText("种类查找");
+		ui->pushButton->setText("选择日期");
+		ui->pushButton_2->setText("日期查找");
+		ui->pushButton_3->setText("种类查找");
+	}
+	else
+	{
+		type_list << "Daily" << "Fixed" << "Large" << "Dealings" << "Entertainment";
+		model->setHeaderData(0, Qt::Horizontal, tr("Date"));
+		model->setHeaderData(1, Qt::Horizontal, tr("Type"));
+		model->setHeaderData(2, Qt::Horizontal, tr("Amount"));
+		model->setHeaderData(3, Qt::Horizontal, tr("Remark"));
+		ui->label->setText("Find By Date");
+		ui->label_2->setText("Find By Type");
+		ui->pushButton->setText("Choose Date");
+		ui->pushButton_2->setText("Find By Date");
+		ui->pushButton_3->setText("Find By Type");
+	}
+	ui->comboBox->addItems(type_list);
 	ui->tableView->horizontalHeader()->setVisible(true);//显示或隐藏表头
 	ui->tableView->verticalHeader()->setVisible(false);//显示或隐藏序列行
 	ui->tableView->setAutoScroll(true);//自动滚动条
