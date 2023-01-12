@@ -106,6 +106,7 @@ void FindWindow::refresh()
 {
 	int length = this->display_table.size();
 	std::vector <std::string> type_info = { "日常", "固定", "大项", "往来", "娱乐" };
+	this->model->clear();
 	for (int i = 0; i < length; i++)
 	{
 		this->model->setItem(i, 0, new QStandardItem(this->display_table[i].get_Date().toString()));
