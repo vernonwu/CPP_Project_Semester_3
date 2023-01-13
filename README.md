@@ -2,12 +2,6 @@
 
 高级语言程序设计期末项目 
 
-作者:
-
-人工智能一班 202164690329 李尚哲
-
-人工智能一班 202164690152 吴霄鹤
-
 
 
 ## 项目介绍
@@ -271,6 +265,6 @@ void SelectDate::buttonClicked()
 
 
 
-## Lisence
+## License
 
 This Project is lisenced under the MIT lisence.
