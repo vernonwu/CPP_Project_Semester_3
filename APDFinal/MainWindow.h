@@ -7,7 +7,6 @@
 #include "Row.h"
 #include "FindWindow.h"
 #include <string>
-#include <iostream>
 #include "Calculate.h"
 #include "InsertWindow.h"
 #include <QStandardItemModel>

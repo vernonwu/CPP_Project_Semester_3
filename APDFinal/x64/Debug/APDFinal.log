@@ -1,4 +1,17 @@
-﻿  Calculate.cpp
+﻿  APDFinal.cpp
+  Calculate.cpp
   FindWindow.cpp
+  Info.cpp
   InsertWindow.cpp
+  Row.cpp
+  SelectDate.cpp
+  main.cpp
+  MainWindow.cpp
+  moc_APDFinal.cpp
+  moc_Calculate.cpp
+  moc_FindWindow.cpp
+  moc_Info.cpp
+  moc_InsertWindow.cpp
+  moc_MainWindow.cpp
+  moc_SelectDate.cpp
   APDFinal.vcxproj -> C:\Users\lszto\source\repos\anonymousoul\CPP_Project_Semester_3\x64\Debug\APDFinal.exe

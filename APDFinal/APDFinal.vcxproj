@@ -128,8 +128,8 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Settings.h" />
-    <QtMoc Include="Calculate.h" />
     <QtMoc Include="Info.h" />
+    <QtMoc Include="Calculate.h" />
     <ClInclude Include="Row.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

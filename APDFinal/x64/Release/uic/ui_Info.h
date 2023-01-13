@@ -13,10 +13,12 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
@@ -28,9 +30,10 @@ class Ui_InfoClass
 {
 public:
     QWidget *centralWidget;
-    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout;
     QLabel *label;
+    QSpacerItem *verticalSpacer;
     QLabel *label_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
@@ -43,27 +46,29 @@ public:
         InfoClass->resize(600, 400);
         centralWidget = new QWidget(InfoClass);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        verticalLayout_2 = new QVBoxLayout(centralWidget);
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        horizontalLayout = new QHBoxLayout(centralWidget);
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
-        label->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label);
 
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout->addItem(verticalSpacer);
+
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_2);
 
 
-        verticalLayout_2->addLayout(verticalLayout);
+        horizontalLayout->addLayout(verticalLayout);
 
         InfoClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(InfoClass);
@@ -85,8 +90,8 @@ public:
     void retranslateUi(QMainWindow *InfoClass)
     {
         InfoClass->setWindowTitle(QApplication::translate("InfoClass", "Info", Q_NULLPTR));
-        label->setText(QApplication::translate("InfoClass", "TextLabel", Q_NULLPTR));
-        label_2->setText(QApplication::translate("InfoClass", "TextLabel", Q_NULLPTR));
+        label->setText(QApplication::translate("InfoClass", "Thanks for using this application created by anonymousoul and Tobyleelsz.", Q_NULLPTR));
+        label_2->setText(QApplication::translate("InfoClass", "Assignment Project for Advanced Language Programming of 3rd semester. Qt implementation of a simple Cashbook.", Q_NULLPTR));
     } // retranslateUi
 
 };

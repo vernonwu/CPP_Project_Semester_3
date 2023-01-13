@@ -1,6 +1,9 @@
-﻿  APDFinal.cpp
+﻿  moc MainWindow.h
+  APDFinal.cpp
   Info.cpp
+  MainWindow.cpp
   main.cpp
   moc_APDFinal.cpp
   moc_Info.cpp
+  moc_MainWindow.cpp
   APDFinal.vcxproj -> C:\Users\lszto\source\repos\anonymousoul\CPP_Project_Semester_3\x64\Release\APDFinal.exe
