@@ -1,2 +1,6 @@
-﻿  FindWindow.cpp
+﻿  APDFinal.cpp
+  Info.cpp
+  main.cpp
+  moc_APDFinal.cpp
+  moc_Info.cpp
   APDFinal.vcxproj -> C:\Users\lszto\source\repos\anonymousoul\CPP_Project_Semester_3\x64\Release\APDFinal.exe

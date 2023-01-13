@@ -55,13 +55,13 @@
     <ClCompile Include="Row.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Info.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Calculate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Settings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Info.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -78,13 +78,13 @@
     <QtMoc Include="FindWindow.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="Info.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
     <QtMoc Include="Calculate.h">
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="Settings.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="Info.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -101,13 +101,13 @@
     <QtUic Include="FindWindow.ui">
       <Filter>Form Files</Filter>
     </QtUic>
-    <QtUic Include="Info.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
     <QtUic Include="Calculate.ui">
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="Settings.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="Info.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

@@ -159,3 +159,8 @@ void MainWindow::receiveData1(QDate date, int type, double amount, std::string r
 {
 	add_Row(date, type, amount, remark);
 }
+
+void Analyze::count()
+{
+	std::cout << table.size() << std::endl;
+}

@@ -7,6 +7,7 @@
 #include "Row.h"
 #include "FindWindow.h"
 #include <string>
+#include <iostream>
 #include "Calculate.h"
 #include "InsertWindow.h"
 #include <QStandardItemModel>
@@ -36,7 +37,7 @@ public slots:
 	void slot_cal();
 	void receiveData1(QDate date, int type, double amount, std::string remark);
 
-private:
+protected:
 	Ui::MainWindow* ui1;
 	std::vector <Row> table;
 	QStandardItemModel* model;
@@ -44,4 +45,10 @@ private:
 	InsertWindow* iw;
 	FindWindow* fw;
 	Calculate* cw;
+};
+
+class Analyze : public MainWindow
+{
+public:
+	void count();
 };
